@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#454545"
+    android:background="@color/widget_background"
     android:alpha="1"
     android:padding="@dimen/widget_margin">
 
@@ -54,7 +54,7 @@
         android:layout_marginTop="65dp"
         android:layout_marginBottom="20dp"
         android:textSize="10pt"
-        android:textColor="#ffffff" />
+        android:textColor="@color/white" />
     <TextView
         android:id="@+id/patience_meter_title"
         android:layout_width="120dp"
@@ -67,5 +67,5 @@
         android:layout_marginTop="65dp"
         android:layout_marginBottom="20dp"
         android:textSize="10pt"
-        android:textColor="#ffffff" />
+        android:textColor="@color/white" />
 </RelativeLayout>

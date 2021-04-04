@@ -10,7 +10,7 @@ import com.farnsio.mindflow.MainActivity
 import com.farnsio.mindflow.R
 
 // Implementation of App Widget functionality.
-class NewAppWidget : AppWidgetProvider() {
+class MasterMetricsWidget : AppWidgetProvider() {
     override fun onUpdate(
             context: Context,
             appWidgetManager: AppWidgetManager,
@@ -46,7 +46,7 @@ internal fun updateAppWidget(
             PendingIntent.getActivity(context, 0, intent, 0)
         }
 
-    val views = RemoteViews(context.packageName, R.layout.new_app_widget).apply {
+    val views = RemoteViews(context.packageName, R.layout.master_widget_layout).apply {
         setOnClickPendingIntent(R.id.edit_button, pendingIntent)
     }
 

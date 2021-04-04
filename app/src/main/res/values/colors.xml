@@ -6,8 +6,10 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="widget_background">#454545</color>
     <color name="white">#FFFFFFFF</color>
     <color name="metric_high">#4CAF50</color>
     <color name="metric_medium">#FFEB3B</color>
     <color name="metric_low">#FF0000</color>
+
 </resources>
