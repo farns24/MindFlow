@@ -1,0 +1,71 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/widget_background"
+    android:alpha="1"
+    android:padding="@dimen/widget_margin">
+
+    <ProgressBar
+        android:id="@+id/energy_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="248dp"
+        android:layout_height="300dp"
+        android:background="@drawable/circle_shape"
+        android:indeterminate="false"
+        android:max="150"
+        android:progress="50"
+        android:progressDrawable="@drawable/circular_progress_drawable" />
+    <ProgressBar
+        android:id="@+id/patience_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="50dp"
+        android:layout_height="220dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:max="100"
+        android:progress="20"
+        android:progressDrawable="@drawable/temperature_progress_drawable"/>
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:layout_below="@id/patience_meter_title" />
+
+    <TextView
+        android:id="@+id/energy_amount"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="130dp"
+        android:gravity="center"
+        android:textSize="12pt"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:text="70%" />
+    <TextView
+        android:id="@+id/energy_amount_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/energy_amount"
+        android:text="@string/widget_energy_title"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="10pt"
+        android:textColor="@color/white" />
+    <TextView
+        android:id="@+id/patience_meter_title"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/energy_amount"
+        android:layout_alignParentRight="true"
+        android:text="@string/widget_patience_title"
+        android:layout_marginLeft="30dp"
+        android:gravity="center"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="10pt"
+        android:textColor="@color/white" />
+</RelativeLayout>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:initialKeyguardLayout="@layout/new_app_widget"
-    android:initialLayout="@layout/new_app_widget"
+    android:initialKeyguardLayout="@layout/master_widget_layout"
+    android:initialLayout="@layout/master_widget_layout"
     android:minWidth="40dp"
     android:minHeight="40dp"
     android:previewImage="@drawable/mindflow"
