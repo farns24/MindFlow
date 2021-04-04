@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rotate xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fromDegrees="90"
-    android:toDegrees="180">
+    android:fromDegrees="145"
+    android:toDegrees="145">
     <shape
         android:innerRadiusRatio="3"
         android:shape="ring"
@@ -10,9 +10,8 @@
 
         <gradient
             android:angle="90"
-            android:endColor="#000000"
-            android:centerColor="#4CAF50"
-            android:startColor="#FFFFFF"
+            android:endColor="@color/black"
+            android:startColor="@color/metric_medium"
             android:type="sweep"
             android:useLevel="false" />
     </shape>

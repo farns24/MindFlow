@@ -14,7 +14,7 @@
         android:background="@drawable/circle_shape"
         android:indeterminate="false"
         android:max="150"
-        android:progress="100"
+        android:progress="50"
         android:progressDrawable="@drawable/circular_progress_drawable" />
     <ProgressBar
         android:id="@+id/patience_progress"
@@ -24,7 +24,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
         android:max="100"
-        android:progress="100"
+        android:progress="20"
         android:progressDrawable="@drawable/temperature_progress_drawable"/>
     <Button
         android:id="@+id/edit_button"
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/energy_amount"
-        android:text="Energy"
+        android:text="@string/widget_energy_title"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="65dp"
         android:layout_marginBottom="20dp"
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/energy_amount"
         android:layout_alignParentRight="true"
-        android:text="Patience"
+        android:text="@string/widget_patience_title"
         android:layout_marginLeft="30dp"
         android:gravity="center"
         android:layout_marginTop="65dp"
