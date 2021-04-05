@@ -57,6 +57,7 @@
         app:layout_constraintTop_toBottomOf="@id/adjust_patience"
         />
     <Button
+        android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit"
