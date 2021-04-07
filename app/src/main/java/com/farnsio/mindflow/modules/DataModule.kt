@@ -1,15 +1,25 @@
 package com.farnsio.mindflow.modules
 
-import com.farnsio.mindflow.MentalHealthStatusDao
-import com.farnsio.mindflow.model.MentalHealthStatusModel
+import android.app.Application
+import android.content.Context
+import androidx.room.Room
+import com.farnsio.mindflow.data.AppDatabase
+import com.farnsio.mindflow.data.DataService
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class DataModule {
-    // Hypothetical dependency on LoginRetrofitService
+
     @Provides
-    fun provideMentalHealthStatusDao(): MentalHealthStatusDao {
-        return MentalHealthStatusDao()
+    fun provideAppDatabase(mApplication: Application?): AppDatabase {
+        return Room.databaseBuilder(mApplication!!, AppDatabase::class.java, "MentalHealthDb").build()
+    }
+
+    @Provides
+    fun provideDataService(appDatabase: AppDatabase): DataService
+    {
+        return DataService(appDatabase)
     }
 }
