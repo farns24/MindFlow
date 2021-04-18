@@ -27,7 +27,7 @@ class Broken : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        (activity?.applicationContext as MyApplication).appComponent?.inject(this)
+//        (activity?.applicationContext as MyApplication).appComponent?.inject(this)
         slideshowViewModel =
                 ViewModelProvider(this).get(SlideshowViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_graphs, container, false)
