@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.farnsio.mindflow.ui.gallery.GalleryFragment"
+        android:name="com.farnsio.mindflow.ui.graphs.GraphFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.farnsio.mindflow.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.farnsio.mindflow.ui.broken.Broken"
+        android:label="@string/menu_graphs"
+        tools:layout="@layout/fragment_graphs" />
 </navigation>

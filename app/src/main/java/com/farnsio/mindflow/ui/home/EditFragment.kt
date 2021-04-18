@@ -13,10 +13,11 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.farnsio.mindflow.MentalHealthStatusDao
 import com.farnsio.mindflow.MyApplication
 import com.farnsio.mindflow.R
-import com.farnsio.mindflow.model.MentalHealthStatusModel
+import com.farnsio.mindflow.data.DataService
+import com.farnsio.mindflow.data.MentalHealthDbRecord
+import kotlinx.coroutines.Dispatchers
 import java.time.LocalDateTime
 import javax.inject.Inject
 
@@ -25,7 +26,7 @@ class EditFragment : Fragment() {
     private lateinit var editViewModel: EditViewModel
 
     @Inject
-    lateinit var mentalHealthStatusDao: MentalHealthStatusDao
+    lateinit var dataService: DataService
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -33,7 +34,7 @@ class EditFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        (activity?.applicationContext as MyApplication).appComponent.inject(this)
+        (activity?.applicationContext as MyApplication).appComponent?.inject(this)
         editViewModel =
                 ViewModelProvider(this).get(EditViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_edit, container, false)
@@ -73,8 +74,9 @@ class EditFragment : Fragment() {
         })
 
         submitButton.setOnClickListener { v: View? ->
-            val update = MentalHealthStatusModel(patienceSliderView.progress, energySliderView.progress, LocalDateTime.now(), notesEditText.text.toString())
-            mentalHealthStatusDao.storeMentalHealthStatus(update)
+
+            val update = MentalHealthDbRecord(LocalDateTime.now().toString(), patienceSliderView.progress, energySliderView.progress, notesEditText.text.toString())
+            dataService.writeData(update)
         }
 
         return root
