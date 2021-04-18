@@ -10,5 +10,5 @@
     <string name="widget_patience_title">Patience</string>
     <string name="menu_edit">Update Status</string>
     <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_graphs">See Graphs</string>
 </resources>
