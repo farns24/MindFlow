@@ -17,7 +17,7 @@ import com.farnsio.mindflow.MyApplication
 import com.farnsio.mindflow.R
 import com.farnsio.mindflow.data.DataService
 import com.farnsio.mindflow.data.MentalHealthDbRecord
-import kotlinx.coroutines.Dispatchers
+import com.farnsio.mindflow.ui.widget.WidgetUpdater
 import java.time.LocalDateTime
 import javax.inject.Inject
 
@@ -77,6 +77,8 @@ class EditFragment : Fragment() {
 
             val update = MentalHealthDbRecord(LocalDateTime.now().toString(), patienceSliderView.progress, energySliderView.progress, notesEditText.text.toString())
             dataService.writeData(update)
+
+            WidgetUpdater().updateWidget(requireActivity())
         }
 
         return root
