@@ -30,11 +30,11 @@ class DataService(val appDatabase: AppDatabase, val chartFormatter: ChartFormatt
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun loadGraphData()
+    fun loadGraphData(beginningOfRange: Long, endOfRange: Long)
     {
         viewModelScope.launch(Dispatchers.IO) {
 
-            val rawMentalHealthRecords = appDatabase.mentalHealthStatusDao().getAll()
+            val rawMentalHealthRecords = appDatabase.mentalHealthStatusDao().getAllInRange(beginningOfRange, endOfRange)
             val dataSet = chartFormatter.formatChart(rawMentalHealthRecords)
             viewModelScope.launch(Dispatchers.Main) {
                 listeners.forEach({ it.onGraphDataLoad(dataSet) })

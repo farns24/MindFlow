@@ -21,13 +21,13 @@ class ChartFormatter {
             // turn your data into Entry objects
             energyEntries.add(
                 Entry(
-                    timeEpoche(data.dateTime).toFloat(),
+                    data.dateTimeEpoch.toFloat(),
                     data.energy.toFloat()
                 )
             )
             patienceEntries.add(
                 Entry(
-                    timeEpoche(data.dateTime).toFloat(),
+                    data.dateTimeEpoch.toFloat(),
                     data.patience.toFloat()
                 )
             )
@@ -48,11 +48,6 @@ class ChartFormatter {
         dataSets.add(patienceDataSet);
         return LineData(dataSets)
     }
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun timeEpoche(dateString: String): Long {
-        var localDateTime :LocalDateTime = LocalDateTime.parse(dateString)
 
-        return localDateTime.toInstant(ZoneOffset.ofTotalSeconds(0)).toEpochMilli()
-    }
 
 }

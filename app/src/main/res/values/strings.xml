@@ -9,6 +9,6 @@
     <string name="widget_energy_title">Energy</string>
     <string name="widget_patience_title">Patience</string>
     <string name="menu_edit">Update Status</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_graphs">See Graphs</string>
+    <string name="menu_graphs">Graphs</string>
+    <string name="menu_history">History</string>
 </resources>
