@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 @Entity
 data class MentalHealthDbRecord(
     @PrimaryKey
-    val dateTime: String,
+    val dateTimeEpoch: Double,
     @ColumnInfo(name = "patience") val patience: Int,
     @ColumnInfo(name = "energy") val energy: Int,
     @ColumnInfo(name = "comments") val comments: String

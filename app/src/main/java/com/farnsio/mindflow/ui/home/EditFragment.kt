@@ -5,11 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.SeekBar
+import android.widget.*
 import android.widget.SeekBar.OnSeekBarChangeListener
-import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -17,7 +14,9 @@ import com.farnsio.mindflow.MyApplication
 import com.farnsio.mindflow.R
 import com.farnsio.mindflow.data.DataService
 import com.farnsio.mindflow.data.MentalHealthDbRecord
-import kotlinx.coroutines.Dispatchers
+import com.farnsio.mindflow.ui.widget.WidgetUpdater
+import com.farnsio.mindflow.util.MyDateUtils
+import java.time.Duration
 import java.time.LocalDateTime
 import javax.inject.Inject
 
@@ -74,9 +73,14 @@ class EditFragment : Fragment() {
         })
 
         submitButton.setOnClickListener { v: View? ->
-
-            val update = MentalHealthDbRecord(LocalDateTime.now().toString(), patienceSliderView.progress, energySliderView.progress, notesEditText.text.toString())
+            val myDateUtils = MyDateUtils()
+            val update = MentalHealthDbRecord(myDateUtils.getEpochMillieconds(LocalDateTime.now()).toDouble(), patienceSliderView.progress, energySliderView.progress, notesEditText.text.toString())
             dataService.writeData(update)
+            Toast.makeText(context, "Status Updated", Toast.LENGTH_LONG).show()
+            notesEditText.text.clear()
+            energySliderView.progress = 0
+            patienceSliderView.progress = 0
+            WidgetUpdater().updateWidget(requireActivity())
         }
 
         return root
