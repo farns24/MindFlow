@@ -48,15 +48,15 @@ internal fun updateAppWidget(
         appWidgetId: Int
 ) {
     val coroutineScope = CoroutineScope(Dispatchers.IO)
-    var db = Room.databaseBuilder(context!!, AppDatabase::class.java, "MentalHealthDb").build()
     // Construct the RemoteViews object
     val pendingIntent: PendingIntent = Intent(context, MainActivity::class.java)
         .let { intent ->
             PendingIntent.getActivity(context, 0, intent, 0)
         }
     coroutineScope.launch {
+        var db = Room.databaseBuilder(context!!, AppDatabase::class.java, "MentalHealthDb").build()
         val lastEntry = db.mentalHealthStatusDao().getAll().last()
-
+        db.close()
         coroutineScope.launch(Dispatchers.Main) {
             val views = RemoteViews(context.packageName, R.layout.master_widget_layout).apply {
                 setOnClickPendingIntent(R.id.edit_button, pendingIntent)

@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_edit" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_graphs"
         android:name="com.farnsio.mindflow.ui.graphs.GraphFragment"
         android:label="@string/menu_graphs"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_graphs" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.farnsio.mindflow.ui.broken.Broken"
+        android:id="@+id/nav_history"
+        android:name="com.farnsio.mindflow.ui.broken.HistoryFragment"
         android:label="@string/menu_history"
-        tools:layout="@layout/fragment_graphs" />
+        tools:layout="@layout/fragment_history" />
 </navigation>
