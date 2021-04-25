@@ -8,7 +8,7 @@ import com.github.mikephil.charting.data.LineData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DataService(val appDatabase: AppDatabase, val chartFormatter: ChartFormatter): ViewModel() {
+class DataService(val appDatabase: AppDatabase): ViewModel() {
 
     val listeners: HashSet<Listener>
 
@@ -35,14 +35,23 @@ class DataService(val appDatabase: AppDatabase, val chartFormatter: ChartFormatt
         viewModelScope.launch(Dispatchers.IO) {
 
             val rawMentalHealthRecords = appDatabase.mentalHealthStatusDao().getAllInRange(beginningOfRange, endOfRange)
-            val dataSet = chartFormatter.formatChart(rawMentalHealthRecords)
             viewModelScope.launch(Dispatchers.Main) {
-                listeners.forEach({ it.onGraphDataLoad(dataSet) })
+                listeners.forEach { it.onGraphDataLoad(rawMentalHealthRecords) }
+            }
+        }
+    }
+
+    fun loadAllGraphData() {
+        viewModelScope.launch(Dispatchers.IO) {
+
+            val rawMentalHealthRecords = appDatabase.mentalHealthStatusDao().getAll()
+            viewModelScope.launch(Dispatchers.Main) {
+                listeners.forEach { it.onGraphDataLoad(rawMentalHealthRecords) }
             }
         }
     }
 
     interface Listener {
-        fun onGraphDataLoad(lineDataSet: LineData)
+        fun onGraphDataLoad(rawMentalHealthDbRecords:  List<MentalHealthDbRecord>)
     }
 }

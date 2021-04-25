@@ -24,8 +24,8 @@ class DataModule {
     }
 
     @Provides
-    fun provideDataService(appDatabase: AppDatabase, chartFormatter: ChartFormatter): DataService
+    fun provideDataService(appDatabase: AppDatabase): DataService
     {
-        return DataService(appDatabase, chartFormatter)
+        return DataService(appDatabase)
     }
 }

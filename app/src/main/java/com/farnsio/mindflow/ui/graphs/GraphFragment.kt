@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.farnsio.mindflow.MyApplication
 import com.farnsio.mindflow.R
+import com.farnsio.mindflow.data.ChartFormatter
 import com.farnsio.mindflow.data.DataService
+import com.farnsio.mindflow.data.MentalHealthDbRecord
 import com.farnsio.mindflow.data.formatter.MyXAxisFormatter
 import com.farnsio.mindflow.util.MyDateUtils
 import com.github.mikephil.charting.charts.LineChart
@@ -73,7 +75,10 @@ class GraphFragment : Fragment(), DataService.Listener {
         dataService.unregisterListener(this)
     }
 
-    override fun onGraphDataLoad(lineData: LineData) {
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onGraphDataLoad(rawMentalHealthRecords:  List<MentalHealthDbRecord>) {
+        val chartFormatter = ChartFormatter()
+        val lineData = chartFormatter.formatChart(rawMentalHealthRecords)
         lineChart.data = lineData
         lineChart.xAxis.valueFormatter = MyXAxisFormatter()
         lineChart.xAxis.textSize = 16f
